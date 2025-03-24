@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Post Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg" style="background-color: #343A40;">
+  <div class="container-fluid">
+     <a class="navbar-brand" href="/">
+        <img src="https://cdn-icons-png.flaticon.com/512/909/909274.png" alt="MYJOB Logo" width="30" height="30">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/about">About</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Login
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/login/">Candidate</a></li>
+            <li><a class="dropdown-item" href="/clogin/">Company</a></li>
+
+          </ul>
+        </li>
+
+        <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search jobs here" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      </ul>
+    </div>
+  </div>
+</nav>
+<center><h1>Post Job</h1></center>
+    <form action="" method="post" style="max-width: 600px; margin: 0 auto;">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="companyname" class="form-label">Company Name</label>
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" value="{{obj.user.username}}" name="companyname" class="form-control" placeholder="Enter company name" aria-label="Company Name" aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" value="{{obj.user.email}}" name="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+
+        <div class="mb-3">
+            <label for="jobname" class="form-label">Job Title</label>
+            <input type="text" name="jobname" class="form-control" id="jobname" placeholder="Enter job title">
+        </div>
+
+        <div class="mb-3">
+            <label for="work" class="form-label">Work Type</label>
+            <select id="work" name="work" class="form-select" required>
+                <option value="">--Select--</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Office">Office</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="experience" class="form-label">Experience</label>
+            <select id="experience" name="experience" class="form-select" required>
+                <option value="">--Select--</option>
+                <option value="Fresher">Fresher</option>
+                <option value="1-2">1-2 years</option>
+                <option value="2-3">2-3 years</option>
+                <option value="3-4">3-4 years</option>
+                <option value="4-5">4-5 years</option>
+                <option value="5-6">5-6 years</option>
+                <option value="above 6">Above 6 years</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="jobtype" class="form-label">Job Type</label>
+            <select id="jobtype" name="jobtype" class="form-select" required>
+                <option value="">--Select--</option>
+                <option value="full time">Full time</option>
+                <option value="part time">Part time</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

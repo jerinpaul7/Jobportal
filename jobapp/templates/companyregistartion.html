@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            margin: auto;
+            max-width: 400px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg" style="background-color: #343A40;">
+  <div class="container-fluid">
+     <a class="navbar-brand" href="/">
+        <img src="https://cdn-icons-png.flaticon.com/512/909/909274.png" alt="MYJOB Logo" width="30" height="30">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/about">About</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Login
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/login/">Candidate</a></li>
+            <li><a class="dropdown-item" href="/clogin/">Company</a></li>
+
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Register
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/register/">Candidate</a></li>
+            <li><a class="dropdown-item" href="/cregister/">Company</a></li>
+
+          </ul>
+        </li>
+        <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search jobs here" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="form-container">
+        <form action="" method="post">{% csrf_token %}
+            <h1 class="text-center">Register</h1>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">User Name</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+                    <input type="text" name="usr" class="form-control" placeholder="Enter your name" aria-label="name" aria-describedby="basic-addon1" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon2"><i class="fa fa-envelope"></i></span>
+                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon3"><i class="fa fa-lock"></i></span>
+                    <input type="password" name="p" class="form-control" id="exampleFormControlInput2" placeholder="Enter your password" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput3" class="form-label">Confirm Password</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon4"><i class="fa fa-lock"></i></span>
+                    <input type="password" name="cp" class="form-control" id="exampleFormControlInput3" placeholder="Confirm your password" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

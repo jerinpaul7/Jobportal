@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+         .card-img-top {
+            height: 250px;
+            width:200px
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg" style="background-color: #343A40;">
+  <div class="container-fluid">
+     <a class="navbar-brand" href="/">
+        <img src="https://cdn-icons-png.flaticon.com/512/909/909274.png" alt="MYJOB Logo" width="30" height="30">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/about">About</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Login
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/login/">Candidate</a></li>
+            <li><a class="dropdown-item" href="/clogin/">Company</a></li>
+
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Register
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/register/">Candidate</a></li>
+            <li><a class="dropdown-item" href="/cregister/">Company</a></li>
+
+          </ul>
+        </li>
+        <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search jobs here" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <center>
+        <h1>Welcome</h1>
+    </center>
+
+    {% for i in obj %}
+    <div class="text-center mb-3">
+        <h4>Username: {{ i.user.username }}</h4>
+        <h4>Email: {{ i.user.email }}</h4>
+    </div>
+
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPkiKDaYcf9sEePxXgpVkjynFBpKlWInjFJQ&s" class="card-img-top" alt="View Jobs">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Post Your Jobs</h5>
+                        <p class="card-text">Add Vacancies.</p>
+                        <a href="/postform/{{ i.id }}" class="btn btn-primary">Post Jobs</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="https://www.thebalancemoney.com/thmb/V3ivSUnAeM0hHyGAsn6z5V3MlPM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1186821733-8293b36141c947c68f635ae24eecfaa3.jpg" class="card-img-top" alt="Jobs Applied">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Applicants Applied</h5>
+                        <p class="card-text">Track applicants who applied for.</p>
+                        <a href="/viewapplied/{{ i.id }}" class="btn btn-primary">View Applicants List</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100">
+                     <img src="https://intileo.com/wp-content/uploads/2024/09/Top-15-IT-Companies-in-India-e1730701766280-768x578.webp" class="card-img-top" alt="Registered Companies">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Registered Companies</h5>
+                        <p class="card-text">See the list of companies hiring via portal.</p>
+                        <a href="/viewcompany/" class="btn btn-primary">View List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNrd9A6Ynl8vvkPKrj3uRfxvlRAkwAZpbB1j6VBkEKSFELPSVRAT+0PJfcEKg4E" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhG81rKQfBKN4fQgSkKFP6CLcz4z+E3tvkAOQ2zkkjPB26lwFdeDkdKeM7gD" crossorigin="anonymous"></script>
+</body>
+</html>
