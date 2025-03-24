@@ -16,7 +16,7 @@ from django.contrib.auth import authenticate
 # Create your views here.
 
 def home(request):
-    return render(request,'home.html')
+    return render(request,'index.html')
 def registerpage(request):
     if request.method == 'POST':
         f = userform(request.POST)
